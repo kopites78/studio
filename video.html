@@ -22,6 +22,11 @@
                     }.bind(this));
                 },
             });
+			
+				window.addEventListener('click', function () {
+			  var v = document.querySelector('#vid');
+			  v.play();
+			  });
         </script>
     </head>
 
@@ -69,7 +74,6 @@
                     rotation="-90 0 0"
                     class="clickable"
                     gesture-handler
-					play="true"
                 ></a-video>
 
 				
