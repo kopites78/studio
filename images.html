@@ -6,6 +6,24 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
+	
+	<script>
+		var src = '//cdn.jsdelivr.net/npm/eruda';
+			if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') {
+				//do nothing	
+			} else {
+				document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+				document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+				
+				let el = document.createElement('div');
+				document.body.appendChild(el);
+
+				eruda.init({
+					container: el,
+					tool: ['console', 'elements']
+				});
+			}
+	</script>
 
     <body style="margin: 0; overflow: hidden;">
         <a-scene
