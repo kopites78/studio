@@ -35,29 +35,30 @@
 				});
 			}			
 			
-            AFRAME.registerComponent('videohandler', {
-                init: function () {
-					console.log("INIT");
-					alert("INIT");
-					
-                    var marker = this.el;
-                    this.vid = document.querySelector("#vid");
+			try {
+				AFRAME.registerComponent('videohandler', {
+					init: function () {
+						alert("INIT");
 
-                    marker.addEventListener('markerFound', function () {
-						console.log("PLAY PLAY PLAY");
-						alert("Play");
-                        this.toggle = true;
-                        this.vid.play();
-                    }.bind(this));
+						var marker = this.el;
+						this.vid = document.querySelector("#vid");
 
-                    marker.addEventListener('markerLost', function () {
-						console.log("PAUSE PAUSE PAUSE");
-						alert("Pause");
-                        this.toggle = false;
-                        this.vid.pause();
-                    }.bind(this));
-                },
-            });
+						marker.addEventListener('markerFound', function () {
+							alert("Play");
+							this.toggle = true;
+							this.vid.play();
+						}.bind(this));
+
+						marker.addEventListener('markerLost', function () {
+							alert("Pause");
+							this.toggle = false;
+							this.vid.pause();
+						}.bind(this));
+					},
+				});
+			} catch (err) {
+				alert(err.message);
+			}
         </script>
     </head>
 
