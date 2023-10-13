@@ -1,6 +1,14 @@
 <!doctype html>
 <html>
     <head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		
         <script src="js/aframe.min.js"></script>
         <script src="js/aframe-ar.js"></script>
         <script src="js/gesture-detector.js"></script>
@@ -54,8 +62,8 @@
             embedded
             gesture-detector
         >
-            <a-assets timeout="10000">
-                <video id="vid" src="https://kopites78.github.io/studio/assets/facts_snake.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline autoplay playsinline></video>
+            <a-assets>
+                <video id="vid" src="assets/facts_snake.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline autoplay playsinline></video>
             </a-assets>
 			
             <a-marker
@@ -90,8 +98,7 @@
 		<script>
 			window.addEventListener("click", function () {
 				this.vid2 = document.querySelector("#vid");
-				alert(this.vid2.offsetWidth + " : " + this.vid2.offsetHeight);
-				this.vid.play();
+				this.vid2.play();
 			});
 		</script>
     </body>
