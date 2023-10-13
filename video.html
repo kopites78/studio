@@ -16,21 +16,25 @@
 		
 		
         <script>
-			alert("1.7");
+			alert("1.8");
 
 			AFRAME.registerComponent('videohandler', {
                 init: function () {
                     var marker = this.el;
                     this.vid = document.querySelector("#vid");
-
+					
+					alert("INIT");
+					
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
                         this.vid.play();
+						alert("Play");
                     }.bind(this));
 
                     marker.addEventListener('markerLost', function () {
                         this.toggle = false;
                         this.vid.pause();
+						alert("Pause");
                     }.bind(this));
                 },
             });
@@ -67,7 +71,7 @@
                 <a-video
                     src="#vid"
                     scale="2 2 2"
-                    position="2 0.1 2"
+                    position="0 0.1 0"
                     rotation="-90 0 0"
                     class="clickable"
                     gesture-handler
