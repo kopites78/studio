@@ -54,6 +54,8 @@
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+		
+		<!--
         <a-scene
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
@@ -101,5 +103,34 @@
 				this.vid2.play();
 			});
 		</script>
+		-->
+		
+		
+		<a-scene>
+			<a-assets>
+			  <video id="video" src="assets/facts_snake.mp4"></video>
+			</a-assets>
+			
+			<a-videosphere src="#video"></a-videosphere>
+			</a-scene>
+
+			<script type="text/javascript">
+				var scene = document.querySelector("a-scene");
+				var vid = document.getElementById("video");
+
+				if (scene.hasLoaded) {
+				  run();
+				} else {
+				  scene.addEventListener("loaded", run);
+				}
+
+				function run () {
+					scene.querySelector(".a-enter-vr-button").addEventListener("click", function(e){
+						console.log("VR Mode entered");
+						this.style.display = "none";
+						vid.play();
+					}, false);
+				}
+			</script>
     </body>
 </html>
