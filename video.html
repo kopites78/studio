@@ -16,7 +16,10 @@
 		
 		
         <script>
+			alert("START");
+			
 			var src = '//cdn.jsdelivr.net/npm/eruda';
+			
 			if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') {
 				//do nothing	
 			} else {
@@ -30,10 +33,7 @@
 					container: el,
 					tool: ['console', 'elements']
 				});
-			}
-			
-			alert("START");
-			
+			}			
 			
             AFRAME.registerComponent('videohandler', {
                 init: function () {
