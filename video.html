@@ -58,6 +58,12 @@
                     }.bind(this));
                 },
             });
+			
+			document.addEventListener("click", function () {
+				alert("CLICK");
+				this.vid2 = document.querySelector("#vid");
+				this.vid2.play();
+			})
         </script>
     </head>
 
