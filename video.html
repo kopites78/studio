@@ -51,7 +51,7 @@
             gesture-detector
         >
             <a-assets>
-                <video id="vid" src="assets/snake.mp4" preload="auto" response-type="arraybuffer" loop crossorigin autoplay playsinline></video>
+                <video id="vid" src="assets/snake.mp4" preload="auto" response-type="arraybuffer" loop crossorigin playsinline></video>
             </a-assets>
 			
             <a-marker
@@ -82,13 +82,7 @@
 
             <a-entity camera></a-entity>
         </a-scene>
-		
-		<script>
-			window.addEventListener("click", function () {
-				this.vid2 = document.querySelector("#vid");
-				this.vid2.play();
-			});
-		</script>
+
 		
 		<!--
 			<a-scene>
