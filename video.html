@@ -20,19 +20,12 @@
 		<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
 		
         <script>
-			alert("2");
-			
-			window.addEventListener('click', function () {
-			  var v = document.querySelector('#penguin-sledding');
-			  v.play();
-			  });
-			
-			/*
+			alert("2.1");
+
 			AFRAME.registerComponent('videohandler', {
                 init: function () {
                     var marker = this.el;
                     this.vid = document.querySelector("#vid");
-					
 					alert("INIT");
 					
                     marker.addEventListener('markerFound', function () {
@@ -48,41 +41,19 @@
                     }.bind(this));
                 },
             });
-			*/
         </script>
     </head>
 
-    <body style="margin: 0; overflow: hidden;">
-		<a-assets>
-	    <video id="penguin-sledding" autoplay loop="true" muted="true" src="assets/snake.mp4"></video>
-	  </a-assets>
-    <a-scene embedded arjs>
-      <a-marker preset="hiro">
-         <!-- <a-box position='0 0.5 0' material='color: yellow; opacity: 0.5;'></a-box> -->
-	  <a-video src="#penguin-sledding" position="0 0.5 0" rotation="270 0 0" play="true"></a-video>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-		
-		
-		<!--
-        <a-scene
-            vr-mode-ui="enabled: false"
-            loading-screen="enabled: false;"
-            arjs="sourceType: webcam; debugUIEnabled: false;"
-            id="scene"
-            embedded
-            gesture-detector
-        >
-            <a-assets>
-                <video id="vid" src="assets/snake.mp4" preload="auto" response-type="arraybuffer" loop crossorigin playsinline></video>
-            </a-assets>
+	<body style="margin: 0; overflow: hidden;">
+		<a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs="sourceType: webcam; debugUIEnabled: false;" id="scene" embedded gesture-detector>
+			<a-assets>
+				<video id="vid" src="assets/snake.mp4" response-type="arraybuffer" preload="auto" loop="true" muted="true" autoplay crossorigin playsinline></video>
+			</a-assets>
 			
-            <a-marker
-                type="pattern"
+			<a-marker type="pattern"
                 preset="custom"
                 url="assets/video-marker.patt"
-                videohandler
+                vidhandler="target: #vid"
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
@@ -92,21 +63,11 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
-                <a-video
-                    src="#vid"
-                    scale="2 2 2"
-                    position="0 0.1 0"
-                    rotation="-90 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-video>
-
-				
-            </a-marker>
-
-            <a-entity camera></a-entity>
-        </a-scene>
-		-->
+			
+				<a-video src="#vid" scale="2 2 2" position="0 0.1 0" rotation="-90 0 0" class="clickable" gesture-handler play="true"></a-video>
+			</a-marker>
+			<a-entity camera></a-entity>
+		</a-scene>
 		
 		<!--
 			<a-scene>
