@@ -9,18 +9,14 @@
 		<meta name="author" content="" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		
-		<!--
+
         <script src="js/aframe.min.js"></script>
         <script src="js/aframe-ar.js"></script>
         <script src="js/gesture-detector.js"></script>
         <script src="js/gesture-handler.js"></script>
-		-->
-		
-		<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-		<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
 		
         <script>
-			alert("2.2");
+			alert("2.4");
 
 			AFRAME.registerComponent('videohandler', {
                 init: function () {
@@ -41,13 +37,23 @@
                     }.bind(this));
                 },
             });
+			
+			 // clickable
+      AFRAME.registerComponent("play-on-click", {
+        init: function() {
+          document.body.addEventListener("click", e => {
+            const src = this.el.getAttribute("src");
+            document.querySelector(src).play();
+          });
+        }
+      });
         </script>
     </head>
 
 	<body style="margin: 0; overflow: hidden;">
 		<a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" arjs="sourceType: webcam; debugUIEnabled: false;" id="scene" embedded gesture-detector>
 			<a-assets>
-				<video id="vid" src="assets/snake.mp4" response-type="arraybuffer" preload="auto" loop="true" muted="true" autoplay crossorigin playsinline></video>
+				<video id="vid" src="assets/snake.mp4" response-type="arraybuffer" preload="auto" loop="true" muted="true" autoplay crossorigin="anonymous" playsinline></video>
 			</a-assets>
 			
 			<a-marker type="pattern"
@@ -63,8 +69,8 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
-			
-				<a-video src="#vid" scale="2 2 2" position="0 0.1 0" rotation="-90 0 0" class="clickable" gesture-handler play="true"></a-video>
+				
+				<a-video play-on-click src="#vid" scale="2 2 2" position="0 0.1 0" rotation="270 0 0" class="clickable" gesture-handler play="true" material="transparent: true"></a-video>
 			</a-marker>
 			<a-entity camera></a-entity>
 		</a-scene>
