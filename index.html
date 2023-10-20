@@ -28,93 +28,36 @@
 		
     </head>
 
-    <body style="margin: 0; overflow: hidden;">
-        
-		<a-scene
-			vr-mode-ui="enabled: false;"
-			loading-screen="enabled: false;"
-			renderer="logarithmicDepthBuffer: true;"
-			arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-			id="scene"
-			embedded
-			gesture-detector
-		>
-
+	<body style="margin: 0; overflow: hidden;">
+		<a-scene vr-mode-ui="enabled: false;" loading-screen="enabled: false;" renderer="logarithmicDepthBuffer: true;"	arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"	id="scene" embedded gesture-detector>
+			
+			<!-- 3D -->
 			<a-assets>
 				<a-asset-item id="animated-asset" src="assets/wolf.gltf"></a-asset-item>
 			</a-assets>
 			
 			<a-marker id="animated-marker" type="pattern" preset="custom" url="assets/gltf-marker.patt" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
-				<a-entity
-					id="bowser-model"
-					scale="1.1844162012747534 1.1844162012747534 1.1844162012747534"
-					animation-mixer="loop: repeat"
-					gltf-model="#animated-asset"
-					class="clickable"
-					gesture-handler
-				></a-entity>
+				<a-entity id="bowser-model"	scale="1.1844162012747534 1.1844162012747534 1.1844162012747534" animation-mixer="loop: repeat" gltf-model="#animated-asset" class="clickable" gesture-handler></a-entity>
 			</a-marker>
+			<!-- 3D -->
 			
+			<!-- VIDEO -->
 			<a-assets>
-                <video
-                    id="vid"
-                    src="assets/facts_snake.mp4"
-                    preload="auto"
-                    response-type="arraybuffer"
-                    loop
-                    crossorigin
-                    webkit-playsinline
-                    autoplay
-					muted
-                    playsinline
-                ></video>
-            </a-assets>
+				<video id="vid" src="assets/facts_snake.mp4" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline></video>
+			</a-assets>
 			
-			<a-marker
-                type="pattern"
-                preset="custom"
-                url="assets/video-marker.patt"
-                videohandler
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="5"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-video
-                    src="#vid"
-                    scale="2 2 2"
-                    position="0 0.1 0"
-                    rotation="-90 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-video>
-            </a-marker>
-
-
-			<a-marker
-				id="animated-marker2"
-				type="pattern"
-				preset="custom"
-				url="assets/image-marker.patt"
-				raycaster="objects: .clickable"
-				emitevents="true"
-				cursor="fuse: false; rayOrigin: mouse;"
-			>
-		
-				<a-image
-					src="assets/frog.png"
-					scale="1 1 1"
-					class="clickable"
-					rotation="-90 0 0"
-					gesture-handler
-				></a-image>
+			<a-marker type="pattern" preset="custom" url="assets/video-marker.patt" videohandler smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+				<a-video src="#vid" scale="2 2 2" position="0 0.1 0" rotation="-90 0 0" class="clickable" gesture-handler></a-video>
 			</a-marker>
+			<!-- VIDEO -->
+
+			<!-- IMAGE -->
+			<a-marker id="animated-marker2" type="pattern" preset="custom"	url="assets/image-marker.patt" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+				<a-image src="assets/frog.png" scale="1 1 1" class="clickable" rotation="-90 0 0" gesture-handler></a-image>
+			</a-marker>
+			<!-- IMAGE -->
 			
 			<a-entity camera></a-entity>
 		</a-scene>
-    </body>
+	</body>
 </html>
