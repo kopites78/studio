@@ -20,7 +20,7 @@
 		<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
 		
         <script>
-			alert("2.1");
+			alert("2.2");
 
 			AFRAME.registerComponent('videohandler', {
                 init: function () {
@@ -53,7 +53,7 @@
 			<a-marker type="pattern"
                 preset="custom"
                 url="assets/video-marker.patt"
-                vidhandler="target: #vid"
+                videohandler
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
